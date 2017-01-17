@@ -7,19 +7,27 @@ namespace ConsoleApplication
     {
         public static void Main(string[] args)
         {
-            using (var db = new BloggingContext())
-            {
-                var blog = new Blog { Url = "http://sample1231233.com" };
-                db.Blogs.Add(blog);
-                db.SaveChanges();
-            }
+            addBlog(new Blog { Url = "www.cnn.com" });
+            getBlogs();
+        }
 
+        public static void getBlogs()
+        {
             using (var db = new BloggingContext())
             {
                 foreach (var x in db.Blogs)
                 {
-                    Console.WriteLine("Blog Url " + "\t" + x.Url);
+                    Console.WriteLine("Blog Id " + "\t" + x.BlogId + "\t" + "Blog Url " + "\t" + x.Url);
                 }
+            }
+        }
+
+        public static void addBlog(Blog blog)
+        {
+            using (var db = new BloggingContext())
+            {
+                db.Blogs.Add(blog);
+                db.SaveChanges();
             }
         }
     }
