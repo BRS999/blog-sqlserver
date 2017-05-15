@@ -1,6 +1,6 @@
 # How to Get Started
 
-## Prerequisits 
+## Prerequisites 
 
 Make sure you have .NET Core and Docker installed and that Docker has at least 3.25gb of memory.
 
